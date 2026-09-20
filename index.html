@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Game specially for you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <canvas id="confetti"></canvas>
+
+  <!-- ЕКРАН 0: СТАРТ -->
+  <section class="screen is-active" id="screen-intro">
+    <div class="window center">
+      <h1 class="title" id="intro-title"></h1>
+      <p class="subtitle" id="intro-sub"></p>
+      <div id="intro-sprite" style="display:flex;justify-content:center;margin:20px 0 6px;"></div>
+      <ul class="tutorial" id="intro-tutorial"></ul>
+    </div>
+    <button class="btn btn--pink btn--big btn--wide" id="btn-start"></button>
+  </section>
+
+  <!-- АКТ 1: БИТВА -->
+  <section class="screen" id="screen-battle">
+    <div class="window window--tight hpblock">
+      <div class="hprow">
+        <span class="hpname" id="boss-name"></span>
+        <span class="hpnum" id="boss-hp-num"></span>
+      </div>
+      <div class="hpbar"><div class="hpfill hpfill--boss" id="boss-hp"></div></div>
+    </div>
+
+    <div class="arena" id="arena">
+      <div class="sprite-slot arena-hero" id="battle-hero"></div>
+      <div class="sprite-slot arena-boss float" id="battle-boss"></div>
+    </div>
+
+    <div class="window window--tight hpblock">
+      <div class="hprow">
+        <span class="hpname" id="hero-name"></span>
+        <span class="hpnum" id="hero-hp-num"></span>
+      </div>
+      <div class="hpbar"><div class="hpfill hpfill--hero" id="hero-hp"></div></div>
+    </div>
+
+    <div class="dialog" id="battle-log"></div>
+    <div class="attacks" id="attack-panel"></div>
+  </section>
+
+  <!-- АКТ 2: КВІЗ -->
+  <section class="screen" id="screen-quiz">
+    <div class="questbar">
+      <div class="hearts" id="hearts"></div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="progress-label" id="quiz-progress"></span>
+        <div id="quiz-sprite"></div>
+      </div>
+    </div>
+    <div class="window">
+      <p class="subtitle" id="quiz-caption"></p>
+      <p class="title" id="quiz-question" style="font-size:clamp(11px,3.2vw,15px);margin-top:12px;"></p>
+    </div>
+    <div class="options" id="quiz-options"></div>
+    <div class="dialog" id="quiz-log"></div>
+  </section>
+
+  <!-- АКТ 3: УГОДА -->
+  <section class="screen" id="screen-terms">
+    <div class="scroll">
+      <h2 id="terms-title"></h2>
+      <p class="doc-no" id="terms-no"></p>
+      <ol class="terms-list" id="terms-list"></ol>
+      <label class="agree" id="agree-box">
+        <input type="checkbox" id="agree-check">
+        <span class="checkbox" id="agree-mark" aria-hidden="true"></span>
+        <span id="agree-label"></span>
+      </label>
+      <p class="sign-line" id="terms-footnote"></p>
+    </div>
+    <div class="sign-actions">
+      <button class="btn btn--green btn--big btn--wide" id="btn-sign"></button>
+      <button class="btn btn--grey" id="btn-refuse" type="button"></button>
+    </div>
+  </section>
+
+  <!-- ФІНАЛ -->
+  <section class="screen" id="screen-final">
+    <div class="couple" id="couple">
+      <div class="big-heart" id="couple-heart"></div>
+    </div>
+    <div class="window center">
+      <h1 class="title" id="final-title"></h1>
+      <p id="final-text" style="margin-top:14px;"></p>
+    </div>
+    <button class="btn btn--pink btn--big btn--wide" id="btn-contact"></button>
+    <p class="subtitle" id="final-ps"></p>
+  </section>
+
+  <!-- МОДАЛЬНІ ВІКНА -->
+  <div class="modal" id="modal">
+    <div class="window modal-card">
+      <p class="title" id="modal-title" style="font-size:clamp(11px,3.2vw,15px)"></p>
+      <p id="modal-text" style="margin-top:12px;"></p>
+      <button class="btn btn--pink" id="modal-ok"></button>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="window overlay-card">
+      <p class="title" id="overlay-title"></p>
+      <p class="victory-xp" id="overlay-xp" style="margin-top:12px;"></p>
+      <p id="overlay-text" style="margin-top:12px;"></p>
+      <button class="btn btn--green btn--wide" id="overlay-next"></button>
+    </div>
+  </div>
+</body>
+</html>
